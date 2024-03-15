@@ -1,0 +1,541 @@
+openapi: 3.0.3
+info:
+  title: Bankbank API
+  version: 1.0.0
+servers:
+  - url: 'http://localhost:8080'
+paths:
+  /account:
+    get:
+      summary: Get all accounts
+      tags:
+        - Account
+      responses:
+        '200':
+          $ref: '#/components/responses/AccountsList'
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      summary: Create a new account
+      tags:
+        - Account
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Account'
+      responses:
+        '201':
+          $ref: '#/components/responses/201'
+        '400':
+          $ref: '#/components/responses/400'
+        '500':
+          $ref: '#/components/responses/500'
+
+  /account/{id}:
+    get:
+      summary: Get account by ID
+      tags:
+        - Account
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the account to retrieve
+          schema:
+            type: integer
+            format: int
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
+    put:
+      summary: Update account by ID
+      tags:
+        - Account
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the account to update
+          schema:
+            type: integer
+            format: int
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Account'
+      responses:
+        '200':
+          $ref: '#/components/responses/200'
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
+    delete:
+      summary: Delete account by ID
+      tags:
+        - Account
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the account to delete
+          schema:
+            type: integer
+            format: int
+      responses:
+        '200':
+          description: Account deleted successfully
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
+
+  /transaction:
+    get:
+      summary: Get all transactions
+      tags:
+        - Transaction
+      responses:
+        '200':
+          $ref: '#/components/responses/TransactionsList'
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      summary: Create a new transaction
+      tags:
+        - Transaction
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Transaction'
+      responses:
+        '201':
+          $ref: '#/components/responses/201'
+        '400':
+          $ref: '#/components/responses/400'
+        '500':
+          $ref: '#/components/responses/500'
+
+  /transaction/{id}:
+    get:
+      summary: Get transaction by ID
+      tags:
+        - Transaction
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the transaction to retrieve
+          schema:
+            type: integer
+            format: int
+      responses:
+        '200':
+          $ref: '#/components/responses/200'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
+    put:
+      summary: Update transaction by ID
+      tags:
+        - Transaction
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the transaction to update
+          schema:
+            type: integer
+            format: int
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Transaction'
+      responses:
+        '201':
+          $ref: '#/components/responses/201'
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
+    delete:
+      summary: Delete transaction by ID
+      tags:
+        - Transaction
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the transaction to delete
+          schema:
+            type: integer
+            format: int
+      responses:
+        '200':
+          $ref: '#/components/responses/200'
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
+
+  /balance:
+    get:
+      summary: Get all balances
+      tags:
+        - Balance
+      responses:
+        '200':
+          $ref: '#/components/responses/BalancesList'
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      summary: Create a new balance record
+      tags:
+        - Balance
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Balance'
+      responses:
+        '201':
+          $ref: '#/components/responses/201'
+        '400':
+          $ref: '#/components/responses/400'
+        '500':
+          $ref: '#/components/responses/500'
+
+  /balance/{id}:
+    get:
+      summary: Get balance record by ID
+      tags:
+        - Balance
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the balance record to retrieve
+          schema:
+            type: integer
+            format: int
+      responses:
+        '200':
+          $ref: '#/components/responses/200'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Balance'
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
+    put:
+      summary: Update balance record by ID
+      tags:
+        - Balance
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the balance record to update
+          schema:
+            type: integer
+            format: int
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Balance'
+      responses:
+        '201':
+          $ref: '#/components/responses/201'
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
+    delete:
+      summary: Delete balance record by ID
+      tags:
+        - Balance
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the balance record to delete
+          schema:
+            type: integer
+            format: int
+      responses:
+        '200':
+          $ref: '#/components/responses/200'
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
+
+  /transactionHistory:
+    get:
+      summary: Get all transactions history
+      tags:
+        - TransactionHistory
+      responses:
+        '200':
+          $ref: '#/components/responses/TransactionHistoriesList'
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      summary: Create a new transaction history
+      tags:
+        - TransactionHistory
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionHistory'
+      responses:
+        '201':
+          $ref: '#/components/responses/201'
+        '400':
+          $ref: '#/components/responses/400'
+        '500':
+          $ref: '#/components/responses/500'
+
+  /transactionHistory/{id}:
+    get:
+      summary: Get transaction history by ID
+      tags:
+        - TransactionHistory
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the transaction history to retrieve
+          schema:
+            type: integer
+            format: int
+      responses:
+        '200':
+          $ref: '#/components/responses/200'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionHistory'
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
+    put:
+      summary: Update transaction history by ID
+      tags:
+        - TransactionHistory
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the transaction history to update
+          schema:
+            type: integer
+            format: int
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionHistory'
+      responses:
+        '201':
+          $ref: '#/components/responses/201'
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
+    delete:
+      summary: Delete transaction history by ID
+      tags:
+        - TransactionHistory
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the transaction history to delete
+          schema:
+            type: integer
+            format: int
+      responses:
+        '200':
+          $ref: '#/components/responses/200'
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
+components:
+  schemas:
+    Account:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int
+        lastname:
+          type: string
+        firstname:
+          type: string
+        birthdate:
+          type: string
+          format: date
+        monthly_salary:
+          type: number
+      required:
+        - id
+        - lastname
+        - firstname
+        - birthdate
+        - monthly_salary
+    Transaction:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int
+        date_time:
+          type: string
+          format: datetime
+        reference:
+          type: string
+        description:
+          type: string
+        debit_mga:
+          type: number
+        credit_mga:
+          type: number
+        account_id:
+          type: number
+        type:
+          type: string
+          enum:
+            - withdrawal
+            - external_transfer
+            - internal_transfer
+      required:
+        - id
+        - date
+        - reference
+        - label
+        - debit_mga
+        - credit_mga
+        - account_id
+        - type
+    TransactionHistory:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int
+        account_id_sender:
+          type: integer
+          format: int
+        date_time:
+          type: string
+          format: datetime
+        description:
+          type: string
+      required:
+        - id
+        - account_id_sender
+        - date_time
+        - description
+    Balance:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int
+        datetime:
+          type: string
+          format: date-time
+        amount:
+          type: number
+        account_id:
+          type: integer
+          format: int
+      required:
+        - id
+        - datetime
+        - amount
+        - account_id
+
+  responses:
+    AccountsList:
+      description: Successful operation, returns a list of accounts.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Account'
+    TransactionsList:
+      description: Successful operation, returns a list of transactions.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Transaction'
+    TransactionHistoriesList:
+      description: Successful operation, returns a list of transactions.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/TransactionHistory'
+    BalancesList:
+      description: Successful operation, returns a list of balances.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Balance'
+    '200':
+      description: Successfully
+    '201':
+      description: Created/updated successfully
+    '400':
+      description: Bad request
+    '404':
+      description: Not found
+    '500':
+      description: Internal server error
