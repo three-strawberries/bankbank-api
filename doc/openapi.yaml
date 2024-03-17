@@ -408,9 +408,9 @@ components:
         id:
           type: integer
           format: int
-        lastname:
+        last_name:
           type: string
-        firstname:
+        first_name:
           type: string
         birthdate:
           type: string
@@ -419,8 +419,8 @@ components:
           type: number
       required:
         - id
-        - lastname
-        - firstname
+        - last_name
+        - first_name
         - birthdate
         - monthly_salary
     Transaction:
@@ -450,9 +450,9 @@ components:
             - internal_transfer
       required:
         - id
-        - date
+        - date_time
         - reference
-        - label
+        - description
         - debit_mga
         - credit_mga
         - account_id
@@ -482,9 +482,9 @@ components:
         id:
           type: integer
           format: int
-        datetime:
+        date_time:
           type: string
-          format: date-time
+          format: datetime
         amount:
           type: number
         account_id:
@@ -492,7 +492,7 @@ components:
           format: int
       required:
         - id
-        - datetime
+        - date_time
         - amount
         - account_id
 
