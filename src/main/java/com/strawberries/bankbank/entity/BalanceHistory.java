@@ -10,8 +10,8 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @ToString
 public class BalanceHistory {
-    private int id;
-    private LocalDateTime dateTime;
+    private int idBalance;
+    private LocalDateTime lastModification;
     private double amount;
-    private int accountId;
+    private int idAccount;
 }
