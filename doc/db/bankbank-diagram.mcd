@@ -1,0 +1,14 @@
+% Using Mocodo 5.2.4
+% Available at www.mocodo.net
+
+Account: id. account, firstname, lastname, birthdate, monthly. salary, authorized. credit
+own, 11 Account, 11 BalanceHistory
+BalanceHistory: id. balance, type, amount, date
+
+register, 1N Account, 11 TransactionGroup
+Transaction: id. transaction, debit, credit, date
+:
+
+TransactionGroup: id. transaction. history, method, description, date
+execute, 1N TransactionGroup, 11 Transaction
+:
