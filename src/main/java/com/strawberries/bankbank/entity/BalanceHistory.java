@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 @Setter
 @AllArgsConstructor
 @ToString
-public class Balance {
+public class BalanceHistory {
     private int id;
     private LocalDateTime dateTime;
     private double amount;
