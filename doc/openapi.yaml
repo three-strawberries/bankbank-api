@@ -479,22 +479,22 @@ components:
     BalanceHistory:
       type: object
       properties:
-        id:
+        idBalance:
           type: integer
           format: int
-        date_time:
+        lastModification:
           type: string
           format: datetime
         amount:
           type: number
-        account_id:
+        idAccount:
           type: integer
           format: int
       required:
         - id
-        - date_time
+        - lastModification
         - amount
-        - account_id
+        - idAccount
 
   responses:
     AccountsList:
