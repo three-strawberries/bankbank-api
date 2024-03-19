@@ -43,7 +43,7 @@ For detailed information about each endpoint and the expected request and respon
 
 ## Conceptual Database Model
 
-![Bank Bank - Conceptual Data Model](./doc/db/bankbank-diagram.svg)
+![Bank Bank - Conceptual Data Model](./docs/db/bankbank-diagram.svg)
 
 ## Contributing
 
