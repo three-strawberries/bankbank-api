@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 @Setter
 @AllArgsConstructor
 @ToString
-public class TransactionHistory {
+public class TransactionGroup {
     private int id;
     private int accountIdSender;
     private LocalDateTime dateTime;

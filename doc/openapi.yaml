@@ -302,28 +302,28 @@ paths:
         '500':
           $ref: '#/components/responses/500'
 
-  /transactionHistory:
+  /transactionGroup:
     get:
-      summary: Get all transactions history
+      summary: Get all transactions groups
       tags:
-        - TransactionHistory
+        - TransactionGroup
       responses:
         '200':
-          $ref: '#/components/responses/TransactionHistoriesList'
+          $ref: '#/components/responses/TransactionGroupList'
         '404':
           $ref: '#/components/responses/404'
         '500':
           $ref: '#/components/responses/500'
     post:
-      summary: Create a new transaction history
+      summary: Create a new transaction group
       tags:
-        - TransactionHistory
+        - TransactionGroup
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/TransactionHistory'
+              $ref: '#/components/schemas/TransactionGroup'
       responses:
         '201':
           $ref: '#/components/responses/201'
@@ -332,16 +332,16 @@ paths:
         '500':
           $ref: '#/components/responses/500'
 
-  /transactionHistory/{id}:
+  /transactionGroup/{id}:
     get:
-      summary: Get transaction history by ID
+      summary: Get transaction group by ID
       tags:
-        - TransactionHistory
+        - TransactionGroup
       parameters:
         - name: id
           in: path
           required: true
-          description: ID of the transaction history to retrieve
+          description: ID of the transaction group to retrieve
           schema:
             type: integer
             format: int
@@ -351,20 +351,20 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TransactionHistory'
+                $ref: '#/components/schemas/TransactionGroup'
         '404':
           $ref: '#/components/responses/404'
         '500':
           $ref: '#/components/responses/500'
     put:
-      summary: Update transaction history by ID
+      summary: Update transaction group by ID
       tags:
-        - TransactionHistory
+        - TransactionGroup
       parameters:
         - name: id
           in: path
           required: true
-          description: ID of the transaction history to update
+          description: ID of the transaction group to update
           schema:
             type: integer
             format: int
@@ -373,7 +373,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/TransactionHistory'
+              $ref: '#/components/schemas/TransactionGroup'
       responses:
         '201':
           $ref: '#/components/responses/201'
@@ -382,14 +382,14 @@ paths:
         '500':
           $ref: '#/components/responses/500'
     delete:
-      summary: Delete transaction history by ID
+      summary: Delete transaction group by ID
       tags:
-        - TransactionHistory
+        - TransactionGroup
       parameters:
         - name: id
           in: path
           required: true
-          description: ID of the transaction history to delete
+          description: ID of the transaction group to delete
           schema:
             type: integer
             format: int
@@ -457,7 +457,7 @@ components:
         - credit_mga
         - account_id
         - type
-    TransactionHistory:
+    TransactionGroup:
       type: object
       properties:
         id:
@@ -513,14 +513,14 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/Transaction'
-    TransactionHistoriesList:
-      description: Successful operation, returns a list of transactions.
+    TransactionGroupList:
+      description: Successful operation, returns a list of transactions groups.
       content:
         application/json:
           schema:
             type: array
             items:
-              $ref: '#/components/schemas/TransactionHistory'
+              $ref: '#/components/schemas/TransactionGroup'
     BalancesList:
       description: Successful operation, returns a list of balances.
       content:
