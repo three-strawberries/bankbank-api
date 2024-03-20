@@ -9,9 +9,9 @@ import java.time.LocalDateTime;
 @Setter
 @AllArgsConstructor
 @ToString
-public class BalanceHistory {
+public class Balance {
     private int idBalance;
-    private LocalDateTime lastModification;
+    private LocalDateTime date;
     private double amount;
-    private int idAccount;
+    private String type;
 }

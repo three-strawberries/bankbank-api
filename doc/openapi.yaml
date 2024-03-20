@@ -203,14 +203,14 @@ paths:
         '500':
           $ref: '#/components/responses/500'
 
-  /balanceHistory:
+  /balance:
     get:
       summary: Get all balances histories
       tags:
-        - BalanceHistory
+        - Balance
       responses:
         '200':
-          $ref: '#/components/responses/BalancesHistoriesList'
+          $ref: '#/components/responses/BalancesList'
         '404':
           $ref: '#/components/responses/404'
         '500':
@@ -218,13 +218,13 @@ paths:
     post:
       summary: Create a new balance record
       tags:
-        - BalanceHistory
+        - Balance
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/BalanceHistory'
+              $ref: '#/components/schemas/Balance'
       responses:
         '201':
           $ref: '#/components/responses/201'
@@ -237,7 +237,7 @@ paths:
     get:
       summary: Get balance record by ID
       tags:
-        - BalanceHistory
+        - Balance
       parameters:
         - name: id
           in: path
@@ -252,7 +252,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BalanceHistory'
+                $ref: '#/components/schemas/Balance'
         '404':
           $ref: '#/components/responses/404'
         '500':
@@ -260,7 +260,7 @@ paths:
     put:
       summary: Update balance record by ID
       tags:
-        - BalanceHistory
+        - Balance
       parameters:
         - name: id
           in: path
@@ -274,7 +274,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/BalanceHistory'
+              $ref: '#/components/schemas/Balance'
       responses:
         '201':
           $ref: '#/components/responses/201'
@@ -285,7 +285,7 @@ paths:
     delete:
       summary: Delete balance record by ID
       tags:
-        - BalanceHistory
+        - Balance
       parameters:
         - name: id
           in: path
@@ -417,15 +417,22 @@ components:
           format: date
         monthlySalary:
           type: number
+        authorizedCredit:
+          type: string
+        bankName:
+          type: string
         idBalance:
           type: integer
           format: int
+
       required:
         - idAccount
         - lastName
         - firstName
         - birthDate
         - monthlySalary
+        - authorizedCredit
+        - bankName
         - idBalance
     Transaction:
       type: object
@@ -480,25 +487,24 @@ components:
         - account_id_sender
         - date_time
         - description
-    BalanceHistory:
+    Balance:
       type: object
       properties:
         idBalance:
           type: integer
           format: int
-        lastModification:
+        date:
           type: string
           format: datetime
         amount:
           type: number
-        idAccount:
-          type: integer
-          format: int
+        type:
+          type : string
       required:
-        - id
-        - lastModification
+        - idBalance
+        - date
         - amount
-        - idAccount
+        - type
 
   responses:
     AccountsList:
@@ -525,14 +531,14 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/TransactionGroup'
-    BalancesHistoriesList:
-      description: Successful operation, returns a list of balances histories.
+    BalancesList:
+      description: Successful operation, returns a list of balances .
       content:
         application/json:
           schema:
             type: array
             items:
-              $ref: '#/components/schemas/BalanceHistory'
+              $ref: '#/components/schemas/Balance'
     '200':
       description: Successfully
     '201':
