@@ -9,9 +9,10 @@ import java.time.LocalDateTime;
 @Setter
 @AllArgsConstructor
 @ToString
-public class TransactionHistory {
-    private int id;
-    private int accountIdSender;
-    private LocalDateTime dateTime;
+public class TransactionGroup {
+    private int idTransactionGroup;
+    private LocalDateTime date;
     private String description;
+    private String method;
+    private int idAccountSender;
 }

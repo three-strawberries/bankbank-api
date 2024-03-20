@@ -11,9 +11,12 @@ import java.sql.Date;
 @AllArgsConstructor
 @ToString
 public class Account {
-    private int id;
+    private int idAccount;
     private String lastName;
-    private String firstname;
+    private String firstName;
     private Date birthDate;
     private double monthlySalary;
+    private String authorizedCredit;
+    private String bankName;
+    private int idBalance;
 }

@@ -10,8 +10,8 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @ToString
 public class Balance {
-    private int id;
-    private LocalDateTime dateTime;
+    private int idBalance;
+    private LocalDateTime date;
     private double amount;
-    private int accountId;
+    private String type;
 }
