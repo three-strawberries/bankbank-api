@@ -10,8 +10,9 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @ToString
 public class TransactionGroup {
-    private int id;
-    private int accountIdSender;
-    private LocalDateTime dateTime;
+    private int idTransactionGroup;
+    private LocalDateTime date;
     private String description;
+    private String method;
+    private int idAccountSender;
 }

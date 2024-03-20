@@ -461,7 +461,7 @@ components:
             - external_transfer
             - internal_transfer
       required:
-        - id
+        - idTransaction
         - date
         - reference
         - description
@@ -473,22 +473,25 @@ components:
     TransactionGroup:
       type: object
       properties:
-        id:
+        idTransactionGroup:
           type: integer
           format: int
-        account_id_sender:
-          type: integer
-          format: int
-        date_time:
+        date:
           type: string
           format: datetime
         description:
           type: string
+        method:
+          type: string
+        idAccountSender:
+          type: integer
+          format: int
       required:
-        - id
-        - account_id_sender
-        - date_time
+        - idTransactionGroup
+        - date
         - description
+        - method
+        - idAccountSender
     Balance:
       type: object
       properties:
