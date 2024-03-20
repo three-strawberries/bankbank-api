@@ -16,4 +16,5 @@ public class Account {
     private String firstname;
     private Date birthDate;
     private double monthlySalary;
+    private int idBalance;
 }

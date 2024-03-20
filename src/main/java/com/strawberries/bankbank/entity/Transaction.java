@@ -11,12 +11,12 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @ToString
 public class Transaction {
-    private int id;
-    private LocalDateTime dateTime;
+    private int idTransaction;
+    private LocalDateTime positionningDate;
     private String reference;
     private  String description;
-    private double debitMGA;
-    private double creditMGA;
+    private double debit;
+    private double credit;
     private int accountId;
     private String type;
 
