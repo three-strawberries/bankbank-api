@@ -13,7 +13,7 @@ import java.sql.Date;
 public class Account {
     private int idAccount;
     private String lastName;
-    private String firstname;
+    private String firstName;
     private Date birthDate;
     private double monthlySalary;
     private int idBalance;

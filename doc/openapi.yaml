@@ -408,21 +408,25 @@ components:
         idAccount:
           type: integer
           format: int
-        last_name:
+        lastName:
           type: string
-        first_name:
+        firstName:
           type: string
-        birthdate:
+        birthDate:
           type: string
           format: date
-        monthly_salary:
+        monthlySalary:
           type: number
+        idBalance:
+          type: integer
+          format: int
       required:
         - idAccount
-        - last_name
-        - first_name
-        - birthdate
-        - monthly_salary
+        - lastName
+        - firstName
+        - birthDate
+        - monthlySalary
+        - idBalance
     Transaction:
       type: object
       properties:
