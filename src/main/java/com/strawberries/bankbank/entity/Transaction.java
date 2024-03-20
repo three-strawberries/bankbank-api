@@ -12,12 +12,13 @@ import java.time.LocalDateTime;
 @ToString
 public class Transaction {
     private int idTransaction;
-    private LocalDateTime positionningDate;
+    private LocalDateTime Date;
     private String reference;
     private  String description;
     private double debit;
     private double credit;
-    private int accountId;
-    private String type;
+    private int idAccountSender;
+    private int idAccountReceiver;
+    private String typeTransaction;
 
 }

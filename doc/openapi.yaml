@@ -424,7 +424,6 @@ components:
         idBalance:
           type: integer
           format: int
-
       required:
         - idAccount
         - lastName
@@ -437,23 +436,25 @@ components:
     Transaction:
       type: object
       properties:
-        id:
+        idTransaction:
           type: integer
           format: int
-        date_time:
+        date:
           type: string
           format: datetime
         reference:
           type: string
         description:
           type: string
-        debit_mga:
+        debit:
           type: number
-        credit_mga:
+        credit:
           type: number
-        account_id:
+        idAccountSender:
           type: number
-        type:
+        idAccountReceiver:
+          type: number
+        typeTransaction:
           type: string
           enum:
             - withdrawal
@@ -461,13 +462,14 @@ components:
             - internal_transfer
       required:
         - id
-        - date_time
+        - date
         - reference
         - description
-        - debit_mga
-        - credit_mga
-        - account_id
-        - type
+        - debit
+        - credit
+        - idAccountSender
+        - idAccountReceiver
+        - typeTransaction
     TransactionGroup:
       type: object
       properties:
