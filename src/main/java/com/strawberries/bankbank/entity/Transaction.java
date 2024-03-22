@@ -19,8 +19,7 @@ public class Transaction {
     private double credit;
     private int idAccountSender;
     private int idAccountReceiver;
+
     private int idTransactionGroup;
     private String typeTransaction;
-
-
 }

@@ -28,5 +28,4 @@ CREATE TABLE IF NOT EXISTS transactionGroup (
     CONSTRAINT fk_account_sender_id
     FOREIGN KEY (idAccountSender)
     REFERENCES account(idAccount)
-
     );
