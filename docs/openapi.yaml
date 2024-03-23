@@ -503,8 +503,12 @@ components:
           format: datetime
         amount:
           type: number
-        type:
-          type : string
+        typeBalance:
+          type: string
+          enum:
+            - main_Balance
+            - loans
+            - interest_On_Loans
       required:
         - idBalance
         - date

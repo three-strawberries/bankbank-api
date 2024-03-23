@@ -14,5 +14,5 @@ public class Balance {
   private int idBalance;
   private LocalDateTime date;
   private double amount;
-  private String type;
+  private String typeBalance;
 }

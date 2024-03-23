@@ -1,8 +1,9 @@
+CREATE TYPE TypeBalance AS ENUM ('main_Balance','loans','interest_On_Loans');
 CREATE TABLE IF NOT EXISTS balance (
        idBalance SERIAL PRIMARY KEY,
        amount DOUBLE PRECISION NOT NULL,
        date Date NOT NULL,
-       type VARCHAR(150) NOT NULL
+       typeBalance TypeBalance NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS account (
