@@ -53,4 +53,3 @@ CREATE TABLE IF NOT EXISTS transaction (
     REFERENCES transactionGroup(idTransactionGroup),
     typeTransaction TypeTransaction NOT NULL
     );
-

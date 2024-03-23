@@ -6,10 +6,10 @@ import com.strawberries.bankbank.repository.BalanceCrudOperations;
 import java.sql.SQLException;
 import java.util.List;
 
-public class BalancesServices {
+public class BalanceServices {
     private final BalanceCrudOperations balanceCrudOperations;
 
-    public BalancesServices(BalanceCrudOperations balanceCrudOperations) throws SQLException {
+    public BalanceServices(BalanceCrudOperations balanceCrudOperations) throws SQLException {
         this.balanceCrudOperations = balanceCrudOperations;
     }
     public List<Balance> getAllBalances() throws SQLException {

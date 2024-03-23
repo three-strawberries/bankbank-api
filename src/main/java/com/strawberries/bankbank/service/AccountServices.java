@@ -15,7 +15,7 @@ public class AccountServices {
     public List<Account> getAllAccounts() throws SQLException {
         return accountCrudOrepations.findAll();
     }
-    public Account saveUser(Account account) throws SQLException {
+    public Account saveAccount(Account account) throws SQLException {
         return accountCrudOrepations.save(account);
     }
     public boolean updateAccount(int idAccount, Account account) throws SQLException {
