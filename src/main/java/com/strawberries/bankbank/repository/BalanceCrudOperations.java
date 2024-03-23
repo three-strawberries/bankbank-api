@@ -1,16 +1,15 @@
 package com.strawberries.bankbank.repository;
 
-
 import com.strawberries.bankbank.db.ConnectDB;
-import com.strawberries.bankbank.entity.Account;
-import java.sql.*;
 
+import com.strawberries.bankbank.entity.Balance;
 
+import java.sql.Connection;
 
-public class AccountCrudOrepations extends AutoCrudOperations<Account> {
+public class BalanceCrudOperations extends AutoCrudOperations<Balance> {
     private final ConnectDB db = ConnectDB.getInstance();
     private Connection connection = db.getConnection();
-    public AccountCrudOrepations(Connection connection) {
+    public BalanceCrudOperations(Connection connection) {
         super(connection);
     }
 }
