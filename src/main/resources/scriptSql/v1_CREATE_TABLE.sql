@@ -28,4 +28,28 @@ CREATE TABLE IF NOT EXISTS transactionGroup (
     CONSTRAINT fk_account_sender_id
     FOREIGN KEY (idAccountSender)
     REFERENCES account(idAccount)
+);
+
+CREATE TYPE TypeTransaction AS ENUM ('withdrawal','external_transfer','internal_transfer');
+CREATE TABLE IF NOT EXISTS transaction (
+    idTransaction SERIAL PRIMARY KEY,
+    date DATE NOT NULL,
+    reference VARCHAR(200) NOT NULL,
+    description VARCHAR(200) NOT NULL,
+    debit DOUBLE PRECISION NOT NULL,
+    credit DOUBLE PRECISION NOT NULL,
+    idAccountSender SERIAL,
+    idAccountReceiver SERIAL,
+    idTransactionGroup SERIAL,
+    CONSTRAINT fk_account_sender_id
+    FOREIGN KEY (idAccountSender)
+    REFERENCES account(idAccount),
+    CONSTRAINT fk_account_receiver_id
+    FOREIGN KEY (idAccountReceiver)
+    REFERENCES account(idAccount),
+    CONSTRAINT fk_transactionGroup_id
+    FOREIGN KEY (idTransactionGroup)
+    REFERENCES transactionGroup(idTransactionGroup),
+    typeTransaction TypeTransaction NOT NULL
     );
+
