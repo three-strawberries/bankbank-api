@@ -2,10 +2,11 @@ package com.strawberries.bankbank.service;
 
 import com.strawberries.bankbank.entity.Account;
 import com.strawberries.bankbank.repository.AccountCrudOrepations;
+import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
 import java.util.List;
-
+@Service
 public class AccountServices {
     private final AccountCrudOrepations accountCrudOrepations;
 
