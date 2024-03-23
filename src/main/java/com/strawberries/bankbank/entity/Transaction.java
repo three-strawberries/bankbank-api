@@ -1,10 +1,10 @@
 package com.strawberries.bankbank.entity;
 
+import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -21,6 +21,5 @@ public class Transaction {
     private int idAccountReceiver;
     private int idTransactionGroup;
     private String typeTransaction;
-
 
 }
