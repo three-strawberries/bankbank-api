@@ -10,7 +10,7 @@ import java.sql.Connection;
 public class BalanceCrudOperations extends AutoCrudOperations<Balance> {
     private final ConnectDB db = ConnectDB.getInstance();
     private final Connection connection = db.getConnection();
-    public BalanceCrudOperations(Connection connection) {
-        super(connection);
+    public BalanceCrudOperations() {
+        super(ConnectDB.getConnection());
     }
 }

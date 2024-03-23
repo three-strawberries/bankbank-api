@@ -12,7 +12,7 @@ import java.sql.*;
 public class AccountCrudOrepations extends AutoCrudOperations<Account> {
     private final ConnectDB db = ConnectDB.getInstance();
     private final Connection connection = db.getConnection();
-    public AccountCrudOrepations(Connection connection) {
-        super(connection);
+    public AccountCrudOrepations() {
+        super(ConnectDB.getConnection());
     }
 }

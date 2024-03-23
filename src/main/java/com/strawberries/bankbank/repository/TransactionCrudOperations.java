@@ -10,7 +10,7 @@ public class TransactionCrudOperations extends AutoCrudOperations<Transaction>{
     private final ConnectDB db = ConnectDB.getInstance();
     private final Connection connection = db.getConnection();
 
-    public TransactionCrudOperations(Connection connection) {
-        super(connection);
+    public TransactionCrudOperations() {
+        super(ConnectDB.getConnection());
     }
 }

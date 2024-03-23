@@ -5,9 +5,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConnectDB {
-  private final String url;
-  private final String username;
-  private final String password;
+  private static String url = null;
+  private static String username = null;
+  private static String password = null;
   private static ConnectDB instance;
   private static Connection connection;
 
@@ -25,7 +25,7 @@ public class ConnectDB {
     return instance;
   }
 
-  public Connection getConnection() {
+  public static Connection getConnection() {
     try {
       if (connection == null || connection.isClosed()) {
         connection = DriverManager.getConnection(url, username, password);

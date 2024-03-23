@@ -8,9 +8,8 @@ import java.sql.Connection;
 @Repository
 public class TransactionGroupCrudOperations extends AutoCrudOperations<TransactionGroup>{
     private final ConnectDB db = ConnectDB.getInstance();
-    private final Connection connection = db.getConnection();
 
-    public TransactionGroupCrudOperations(Connection connection) {
-        super(connection);
+    public TransactionGroupCrudOperations() {
+        super(ConnectDB.getConnection());
     }
 }
