@@ -6,7 +6,9 @@ Welcome to the official documentation for the BankBank Inc. API. BankBank is an 
 
 - **Java Spring Boot**: BankBank's backend is built using Spring Boot, a powerful framework for building Java-based applications.
 - **PostgreSQL**: We utilize PostgreSQL, a robust open-source relational database, to store and manage our data securely.
-- **React / Next.js**: For the web interface, we leverage React and Next.js to create a dynamic and intuitive user experience.
+- **Gradle**: Gradle is a tool for automating the build process of software projects. It helps manage dependencies and tasks efficiently.
+- **Google Java Format***: Google Java Format automatically formats Java code according to Google's style guidelines, ensuring consistency and readability.
+- **React / Next.js**: For the web interface, we leverage React and Next.js to create a dynamic and intuitive user experience. [Available in Github](https://github.com/strawberries-team/bankbank-ui).
 
 ## Getting Started
 
@@ -43,7 +45,11 @@ For detailed information about each endpoint and the expected request and respon
 
 ## Conceptual Database Model
 
-![Bank Bank - Conceptual Data Model](./docs/db/bankbank-diagram.svg)
+![Bank Bank - Conceptual Data Model](./docs/db/bankbank-conceptual-diagram.svg)
+
+## Logical Database Model
+
+![Bank Bank - Logical Data Model](./docs/db/bankbank-logical-diagram.svg)
 
 ## Contributing
 

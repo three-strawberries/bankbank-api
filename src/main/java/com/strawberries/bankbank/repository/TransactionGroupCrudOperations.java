@@ -2,14 +2,17 @@ package com.strawberries.bankbank.repository;
 
 import com.strawberries.bankbank.db.ConnectDB;
 import com.strawberries.bankbank.entity.TransactionGroup;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import javax.sql.DataSource;
 import java.sql.Connection;
-@Repository
-public class TransactionGroupCrudOperations extends AutoCrudOperations<TransactionGroup>{
-    private final ConnectDB db = ConnectDB.getInstance();
+import java.sql.SQLException;
 
-    public TransactionGroupCrudOperations() {
-        super(ConnectDB.getConnection());
+@Repository
+public class TransactionGroupCrudOperations extends AutoCrudOperations<TransactionGroup> {
+
+    public TransactionGroupCrudOperations(DataSource dataSource) {
+        super(dataSource);
     }
 }
