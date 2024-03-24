@@ -2,14 +2,15 @@ package com.strawberries.bankbank.service;
 
 import com.strawberries.bankbank.entity.Balance;
 import com.strawberries.bankbank.repository.BalanceCrudOperations;
+import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
 import java.util.List;
-
-public class BalancesServices {
+@Service
+public class BalanceServices {
     private final BalanceCrudOperations balanceCrudOperations;
 
-    public BalancesServices(BalanceCrudOperations balanceCrudOperations) throws SQLException {
+    public BalanceServices(BalanceCrudOperations balanceCrudOperations) throws SQLException {
         this.balanceCrudOperations = balanceCrudOperations;
     }
     public List<Balance> getAllBalances() throws SQLException {

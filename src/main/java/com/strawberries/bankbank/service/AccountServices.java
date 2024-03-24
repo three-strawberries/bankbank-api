@@ -2,10 +2,11 @@ package com.strawberries.bankbank.service;
 
 import com.strawberries.bankbank.entity.Account;
 import com.strawberries.bankbank.repository.AccountCrudOrepations;
+import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
 import java.util.List;
-
+@Service
 public class AccountServices {
     private final AccountCrudOrepations accountCrudOrepations;
 
@@ -15,7 +16,7 @@ public class AccountServices {
     public List<Account> getAllAccounts() throws SQLException {
         return accountCrudOrepations.findAll();
     }
-    public Account saveUser(Account account) throws SQLException {
+    public Account saveAccount(Account account) throws SQLException {
         return accountCrudOrepations.save(account);
     }
     public boolean updateAccount(int idAccount, Account account) throws SQLException {
