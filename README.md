@@ -45,6 +45,10 @@ For detailed information about each endpoint and the expected request and respon
 
 ![Bank Bank - Conceptual Data Model](./docs/db/bankbank-diagram.svg)
 
+## Logical Database Model
+
+![Bank Bank - Logical Data Model](./docs/db/bankbank-logical-diagram.svg)
+
 ## Contributing
 
 We welcome contributions from the community to improve BankBank's API. If you find any issues or have suggestions for enhancements, please submit a pull request or open an issue on GitHub.
