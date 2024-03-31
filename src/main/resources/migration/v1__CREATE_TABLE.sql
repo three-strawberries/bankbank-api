@@ -1,4 +1,5 @@
-CREATE TYPE TypeBalance AS ENUM ('main_Balance','loans','interest_On_Loans');
+CREATE TYPE TypeBalance AS ENUM ('main_balance','loans','interest_on_loans');
+
 CREATE TABLE IF NOT EXISTS balance (
        idBalance SERIAL PRIMARY KEY,
        amount DOUBLE PRECISION NOT NULL,
@@ -18,11 +19,11 @@ CREATE TABLE IF NOT EXISTS account (
     CONSTRAINT fk_balance_id
     FOREIGN KEY (idBalance)
     REFERENCES balance(idBalance)
-
 );
+
 CREATE TABLE IF NOT EXISTS transactionGroup (
     idTransactionGroup SERIAL PRIMARY KEY,
-    date Date NOT NULL,
+    timestamp TIMESTAMP NOT NULL,
     description VARCHAR(200) NOT NULL,
     method VARCHAR(200) NOT NULL,
     idAccountSender SERIAL,
@@ -32,9 +33,10 @@ CREATE TABLE IF NOT EXISTS transactionGroup (
 );
 
 CREATE TYPE TypeTransaction AS ENUM ('withdrawal','external_transfer','internal_transfer');
+
 CREATE TABLE IF NOT EXISTS transaction (
     idTransaction SERIAL PRIMARY KEY,
-    date DATE NOT NULL,
+    timestamp TIMESTAMP NOT NULL,
     reference VARCHAR(200) NOT NULL,
     description VARCHAR(200) NOT NULL,
     debit DOUBLE PRECISION NOT NULL,
@@ -52,4 +54,4 @@ CREATE TABLE IF NOT EXISTS transaction (
     FOREIGN KEY (idTransactionGroup)
     REFERENCES transactionGroup(idTransactionGroup),
     typeTransaction TypeTransaction NOT NULL
-    );
+);

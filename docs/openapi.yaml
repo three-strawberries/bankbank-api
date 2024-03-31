@@ -3,7 +3,7 @@ info:
   title: Bankbank API
   version: 1.0.1
 servers:
-  - url: 'http://localhost:8080/api'
+  - url: http://localhost:8080/api
 paths:
   /accounts:
     get:
@@ -17,7 +17,6 @@ paths:
           $ref: '#/components/responses/404'
         '500':
           $ref: '#/components/responses/500'
-
   /account:
     post:
       summary: Create a new account
@@ -36,7 +35,6 @@ paths:
           $ref: '#/components/responses/400'
         '500':
           $ref: '#/components/responses/500'
-
   /account/{id}:
     get:
       summary: Get account by ID
@@ -105,7 +103,6 @@ paths:
           $ref: '#/components/responses/404'
         '500':
           $ref: '#/components/responses/500'
-
   /transactions:
     get:
       summary: Get all transactions
@@ -118,7 +115,6 @@ paths:
           $ref: '#/components/responses/404'
         '500':
           $ref: '#/components/responses/500'
-
   /transaction:
     post:
       summary: Create a new transaction
@@ -137,7 +133,6 @@ paths:
           $ref: '#/components/responses/400'
         '500':
           $ref: '#/components/responses/500'
-
   /transaction/{id}:
     get:
       summary: Get transaction by ID
@@ -206,7 +201,6 @@ paths:
           $ref: '#/components/responses/404'
         '500':
           $ref: '#/components/responses/500'
-
   /balances:
     get:
       summary: Get all balances histories
@@ -219,7 +213,6 @@ paths:
           $ref: '#/components/responses/404'
         '500':
           $ref: '#/components/responses/500'
-
   /balance:
     post:
       summary: Create a new balance record
@@ -238,7 +231,6 @@ paths:
           $ref: '#/components/responses/400'
         '500':
           $ref: '#/components/responses/500'
-
   /balanceHistory/{id}:
     get:
       summary: Get balance record by ID
@@ -307,7 +299,6 @@ paths:
           $ref: '#/components/responses/404'
         '500':
           $ref: '#/components/responses/500'
-
   /transactionGroups:
     get:
       summary: Get all transactions groups
@@ -320,7 +311,6 @@ paths:
           $ref: '#/components/responses/404'
         '500':
           $ref: '#/components/responses/500'
-
   /transactionGroup:
     post:
       summary: Create a new transaction group
@@ -339,7 +329,6 @@ paths:
           $ref: '#/components/responses/400'
         '500':
           $ref: '#/components/responses/500'
-
   /transactionGroup/{id}:
     get:
       summary: Get transaction group by ID
@@ -447,9 +436,8 @@ components:
         idTransaction:
           type: integer
           format: int
-        date:
+        timestamp:
           type: string
-          format: datetime
         reference:
           type: string
         description:
@@ -470,7 +458,7 @@ components:
             - internal_transfer
       required:
         - idTransaction
-        - date
+        - timestamp
         - reference
         - description
         - debit
@@ -484,9 +472,8 @@ components:
         idTransactionGroup:
           type: integer
           format: int
-        date:
+        timestamp:
           type: string
-          format: datetime
         description:
           type: string
         method:
@@ -496,7 +483,7 @@ components:
           format: int
       required:
         - idTransactionGroup
-        - date
+        - timestamp
         - description
         - method
         - idAccountSender
@@ -506,24 +493,32 @@ components:
         idBalance:
           type: integer
           format: int
-        date:
+        timestamp:
           type: string
-          format: datetime
         amount:
           type: number
         typeBalance:
           type: string
           enum:
-            - main_Balance
+            - main_balance
             - loans
-            - interest_On_Loans
+            - interest_on_loans
       required:
         - idBalance
-        - date
+        - timestamp
         - amount
         - type
-
   responses:
+    '200':
+      description: Successfully
+    '201':
+      description: Created/updated successfully
+    '400':
+      description: Bad request
+    '404':
+      description: Not found
+    '500':
+      description: Internal server error
     AccountsList:
       description: Successful operation, returns a list of accounts.
       content:
@@ -556,13 +551,3 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/Balance'
-    '200':
-      description: Successfully
-    '201':
-      description: Created/updated successfully
-    '400':
-      description: Bad request
-    '404':
-      description: Not found
-    '500':
-      description: Internal server error
