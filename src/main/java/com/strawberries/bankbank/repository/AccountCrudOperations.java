@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public class AccountCrudOperations implements CrudOperations<Account> {
     private final ConnectDB db = ConnectDB.getInstance();
-    private Connection connection = db.getConnection();
+    private final Connection connection = db.getConnection();
 
     @Override
     public List<Account> findAll() {

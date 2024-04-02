@@ -18,21 +18,19 @@ public class TransactionGroupController {
   }
 
   @GetMapping("/transactionGroups")
-  public List<TransactionGroup> getAllTransactionGroups() throws SQLException {
+  public List<TransactionGroup> getAllTransactionGroups() {
     return transactionGroupServices.getAllTransactionGroups();
   }
 
   @PostMapping("/transactionGroup")
-  public ResponseEntity<TransactionGroup> addTransactionGroup(
-      @RequestBody TransactionGroup transactionGroup) throws SQLException, IllegalAccessException {
+  public ResponseEntity<TransactionGroup> addTransactionGroup(@RequestBody TransactionGroup transactionGroup) {
     TransactionGroup savedTransactionGroup =
         transactionGroupServices.saveTransactionGroup(transactionGroup);
     return new ResponseEntity<>(savedTransactionGroup, HttpStatus.CREATED);
   }
 
   @PutMapping("/transactionGroup/{idTransactionGroup}")
-  public ResponseEntity<Void> updateTransactionGroup(
-      @PathVariable int idTransactionGroup, @RequestBody TransactionGroup transactionGroupUpdate) throws SQLException, IllegalAccessException {
+  public ResponseEntity<Void> updateTransactionGroup(@PathVariable int idTransactionGroup, @RequestBody TransactionGroup transactionGroupUpdate)  {
     boolean updateSuccess =
         transactionGroupServices.updateTransactionGroup(idTransactionGroup, transactionGroupUpdate);
     if (updateSuccess) {

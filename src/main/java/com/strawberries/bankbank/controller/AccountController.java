@@ -18,18 +18,18 @@ public class AccountController {
   }
 
   @GetMapping("/accounts")
-  public List<Account> getAllAccounts() throws SQLException {
+  public List<Account> getAllAccounts() {
     return accountServices.getAllAccounts();
   }
 
   @PostMapping("/account")
-  public ResponseEntity<Account> addAccount(@RequestBody Account account) throws SQLException, IllegalAccessException {
+  public ResponseEntity<Account> addAccount(@RequestBody Account account)  {
     Account savedAccount = accountServices.saveAccount(account);
     return new ResponseEntity<>(savedAccount, HttpStatus.CREATED);
   }
 
   @PutMapping("/account/{idAccount}")
-  public ResponseEntity<Void> updateAccount(@PathVariable int idAccount, @RequestBody Account accountUpdate) throws SQLException, IllegalAccessException {
+  public ResponseEntity<Void> updateAccount(@PathVariable int idAccount, @RequestBody Account accountUpdate) {
       boolean updateSuccess = accountServices.updateAccount(idAccount, accountUpdate);
       if (updateSuccess) {
       return new ResponseEntity<>(HttpStatus.OK);

@@ -14,7 +14,7 @@ import java.util.List;
 @Repository
 public class TransactionCrudOperations implements CrudOperations<Transaction> {
   private final ConnectDB db = ConnectDB.getInstance();
-  private Connection connection = db.getConnection();
+  private final Connection connection = db.getConnection();
 
 
   @Override

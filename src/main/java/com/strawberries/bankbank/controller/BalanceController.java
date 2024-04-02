@@ -18,19 +18,19 @@ public class BalanceController {
   }
 
   @GetMapping("/balances")
-  public List<Balance> getAllBalances() throws SQLException {
+  public List<Balance> getAllBalances()  {
     return balanceServices.getAllBalances();
   }
 
   @PostMapping("/balance")
 
-  public ResponseEntity<Balance> addBalance(@RequestBody Balance balance) throws SQLException, IllegalAccessException {
+  public ResponseEntity<Balance> addBalance(@RequestBody Balance balance)  {
     Balance savedBalance = balanceServices.saveBalance(balance);
     return new ResponseEntity<>(savedBalance, HttpStatus.CREATED);
   }
 
   @PutMapping("/balance/{idBalance}")
-  public ResponseEntity<Void> updateBalance(@PathVariable int idBalance, @RequestBody Balance balanceUpdate) throws SQLException, IllegalAccessException {
+  public ResponseEntity<Void> updateBalance(@PathVariable int idBalance, @RequestBody Balance balanceUpdate)  {
     boolean updateSuccess = balanceServices.updateBalance(idBalance, balanceUpdate);
     if (updateSuccess) {
       return new ResponseEntity<>(HttpStatus.OK);

@@ -7,13 +7,13 @@ import org.springframework.stereotype.Repository;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import javax.sql.DataSource;
+
 
 
 @Repository
 public class BalanceCrudOperations implements CrudOperations<Balance> {
   private final ConnectDB db = ConnectDB.getInstance();
-  private Connection connection = db.getConnection();
+  private final Connection connection = db.getConnection();
 
   @Override
   public List<Balance> findAll() {

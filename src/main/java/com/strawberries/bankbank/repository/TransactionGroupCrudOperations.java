@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public class TransactionGroupCrudOperations implements CrudOperations<TransactionGroup> {
   private final ConnectDB db = ConnectDB.getInstance();
-  private Connection connection = db.getConnection();
+  private final Connection connection = db.getConnection();
 
   @Override
   public List<TransactionGroup> findAll() {

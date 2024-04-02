@@ -2,7 +2,6 @@ package com.strawberries.bankbank.service;
 
 import com.strawberries.bankbank.entity.Balance;
 import com.strawberries.bankbank.repository.BalanceCrudOperations;
-import java.sql.SQLException;
 import java.util.List;
 import org.springframework.stereotype.Service;
 
@@ -10,16 +9,16 @@ import org.springframework.stereotype.Service;
 public class BalanceServices {
   private final BalanceCrudOperations balanceCrudOperations;
 
-  public BalanceServices(BalanceCrudOperations balanceCrudOperations) throws SQLException {
+  public BalanceServices(BalanceCrudOperations balanceCrudOperations) {
     this.balanceCrudOperations = balanceCrudOperations;
   }
-  public List<Balance> getAllBalances() throws SQLException {
+  public List<Balance> getAllBalances() {
     return balanceCrudOperations.findAll();
   }
-  public Balance saveBalance(Balance balance) throws SQLException, IllegalAccessException {
+  public Balance saveBalance(Balance balance) {
     return balanceCrudOperations.save(balance);
   }
-  public boolean updateBalance(int idBalance, Balance balance) throws SQLException, IllegalAccessException {
+  public boolean updateBalance(int idBalance, Balance balance) {
     return balanceCrudOperations.update(balance);
   }
 }
