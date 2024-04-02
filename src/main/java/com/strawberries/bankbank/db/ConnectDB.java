@@ -1,25 +1,44 @@
 package com.strawberries.bankbank.db;
 
-
-import org.springframework.stereotype.Component;
-import javax.sql.DataSource;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
+import javax.sql.DataSource;
+import org.springframework.stereotype.Component;
 
-@Component
 public class ConnectDB {
+  private final String url;
+  private final String username;
+  private final String password;
+  private static ConnectDB instance;
+  private static Connection connection;
 
-  private final DataSource dataSource;
-
-  public ConnectDB(DataSource dataSource) {
-    this.dataSource = dataSource;
+  private ConnectDB(String url, String username, String password) {
+    this.url = url;
+    this.username = username;
+    this.password = password;
   }
-
+  public static ConnectDB getInstance() {
+    if (instance == null) {
+      instance = new ConnectDB(
+              PostgresqlConf.URL,
+              PostgresqlConf.USERNAME,
+              PostgresqlConf.PASSWORD
+      );
+    }
+    return instance;
+  }
   public Connection getConnection() {
     try {
-      return dataSource.getConnection();
+      if (connection == null || connection.isClosed()) {
+        connection = DriverManager.getConnection(url, username, password);
+      }
+      return connection;
     } catch (SQLException e) {
-      throw new RuntimeException("Error connecting to database.", e);
+      e.printStackTrace();
+      throw new RuntimeException("\n" +
+              "Error connecting to database.", e);
     }
+
   }
 }

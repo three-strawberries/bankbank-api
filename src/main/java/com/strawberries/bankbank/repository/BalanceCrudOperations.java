@@ -1,17 +1,27 @@
 package com.strawberries.bankbank.repository;
 
 import com.strawberries.bankbank.entity.Balance;
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.sql.DataSource;
 import org.springframework.stereotype.Repository;
 
-import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.SQLException;
+import java.util.List;
 
 @Repository
-public class BalanceCrudOperations extends AutoCrudOperations<Balance> {
+public class BalanceCrudOperations implements CrudOperations<Balance> {
 
-    public BalanceCrudOperations(DataSource dataSource) {
-        super(dataSource);
-    }
+
+  @Override
+  public List<Balance> findAll() {
+    return null;
+  }
+
+  @Override
+  public Balance save(Balance toSave) throws IllegalAccessException {
+    return null;
+  }
+
+  @Override
+  public boolean update(Balance entity) throws IllegalAccessException {
+    return false;
+  }
 }

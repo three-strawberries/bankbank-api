@@ -1,18 +1,27 @@
 package com.strawberries.bankbank.repository;
 
-import com.strawberries.bankbank.db.ConnectDB;
 import com.strawberries.bankbank.entity.TransactionGroup;
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.sql.DataSource;
 import org.springframework.stereotype.Repository;
 
-import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.SQLException;
+import java.util.List;
 
 @Repository
-public class TransactionGroupCrudOperations extends AutoCrudOperations<TransactionGroup> {
+public class TransactionGroupCrudOperations implements CrudOperations<TransactionGroup> {
 
-    public TransactionGroupCrudOperations(DataSource dataSource) {
-        super(dataSource);
-    }
+
+  @Override
+  public List<TransactionGroup> findAll() {
+    return null;
+  }
+
+  @Override
+  public TransactionGroup save(TransactionGroup toSave) throws IllegalAccessException {
+    return null;
+  }
+
+  @Override
+  public boolean update(TransactionGroup entity) throws IllegalAccessException {
+    return false;
+  }
 }
