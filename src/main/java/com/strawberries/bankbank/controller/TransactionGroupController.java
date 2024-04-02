@@ -32,8 +32,7 @@ public class TransactionGroupController {
 
   @PutMapping("/transactionGroup/{idTransactionGroup}")
   public ResponseEntity<Void> updateTransactionGroup(
-      @PathVariable int idTransactionGroup, @RequestBody TransactionGroup transactionGroupUpdate)
-          throws SQLException, IllegalAccessException {
+      @PathVariable int idTransactionGroup, @RequestBody TransactionGroup transactionGroupUpdate) throws SQLException, IllegalAccessException {
     boolean updateSuccess =
         transactionGroupServices.updateTransactionGroup(idTransactionGroup, transactionGroupUpdate);
     if (updateSuccess) {

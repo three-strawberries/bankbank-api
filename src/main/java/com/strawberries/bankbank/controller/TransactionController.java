@@ -23,16 +23,13 @@ public class TransactionController {
   }
 
   @PostMapping("/transaction")
-  public ResponseEntity<Transaction> addTransaction(@RequestBody Transaction transaction)
-          throws SQLException, IllegalAccessException {
+  public ResponseEntity<Transaction> addTransaction(@RequestBody Transaction transaction) throws SQLException, IllegalAccessException {
     Transaction savedTransaction = transactionServices.saveTransaction(transaction);
     return new ResponseEntity<>(savedTransaction, HttpStatus.CREATED);
   }
 
   @PutMapping("/transaction/{idTransaction}")
-  public ResponseEntity<Void> updateTransaction(
-      @PathVariable int idTransaction, @RequestBody Transaction transactionUpdate)
-          throws SQLException, IllegalAccessException {
+  public ResponseEntity<Void> updateTransaction(@PathVariable int idTransaction, @RequestBody Transaction transactionUpdate) throws SQLException, IllegalAccessException {
     boolean updateSuccess = transactionServices.updateTransaction(idTransaction, transactionUpdate);
     if (updateSuccess) {
       return new ResponseEntity<>(HttpStatus.OK);

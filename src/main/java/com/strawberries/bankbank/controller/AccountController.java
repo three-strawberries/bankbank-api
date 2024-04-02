@@ -29,12 +29,11 @@ public class AccountController {
   }
 
   @PutMapping("/account/{idAccount}")
-  public ResponseEntity<Void> updateAccount(
-      @PathVariable int idAccount, @RequestBody Account accountUpdate) throws SQLException, IllegalAccessException {
-    boolean updateSuccess = accountServices.updateAccount(idAccount, accountUpdate);
-    if (updateSuccess) {
+  public ResponseEntity<Void> updateAccount(@PathVariable int idAccount, @RequestBody Account accountUpdate) throws SQLException, IllegalAccessException {
+      boolean updateSuccess = accountServices.updateAccount(idAccount, accountUpdate);
+      if (updateSuccess) {
       return new ResponseEntity<>(HttpStatus.OK);
-    } else {
+      } else {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
   }

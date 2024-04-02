@@ -1,6 +1,6 @@
 package com.strawberries.bankbank.entity;
 
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,7 +12,7 @@ import lombok.ToString;
 @ToString
 public class Transaction {
   private int idTransaction;
-  private LocalDateTime Date;
+  private Timestamp timestamp;
   private String reference;
   private String description;
   private double debit;

@@ -13,15 +13,12 @@ public class BalanceServices {
   public BalanceServices(BalanceCrudOperations balanceCrudOperations) throws SQLException {
     this.balanceCrudOperations = balanceCrudOperations;
   }
-
   public List<Balance> getAllBalances() throws SQLException {
     return balanceCrudOperations.findAll();
   }
-
   public Balance saveBalance(Balance balance) throws SQLException, IllegalAccessException {
     return balanceCrudOperations.save(balance);
   }
-
   public boolean updateBalance(int idBalance, Balance balance) throws SQLException, IllegalAccessException {
     return balanceCrudOperations.update(balance);
   }

@@ -23,14 +23,14 @@ public class BalanceController {
   }
 
   @PostMapping("/balance")
+
   public ResponseEntity<Balance> addBalance(@RequestBody Balance balance) throws SQLException, IllegalAccessException {
     Balance savedBalance = balanceServices.saveBalance(balance);
     return new ResponseEntity<>(savedBalance, HttpStatus.CREATED);
   }
 
   @PutMapping("/balance/{idBalance}")
-  public ResponseEntity<Void> updateBalance(
-      @PathVariable int idBalance, @RequestBody Balance balanceUpdate) throws SQLException, IllegalAccessException {
+  public ResponseEntity<Void> updateBalance(@PathVariable int idBalance, @RequestBody Balance balanceUpdate) throws SQLException, IllegalAccessException {
     boolean updateSuccess = balanceServices.updateBalance(idBalance, balanceUpdate);
     if (updateSuccess) {
       return new ResponseEntity<>(HttpStatus.OK);

@@ -2,9 +2,7 @@ package com.strawberries.bankbank.repository;
 
 import com.strawberries.bankbank.db.ConnectDB;
 import com.strawberries.bankbank.entity.TransactionGroup;
-import javax.sql.DataSource;
 import org.springframework.stereotype.Repository;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +21,7 @@ public class TransactionGroupCrudOperations implements CrudOperations<Transactio
       while (resultSet.next()) {
         TransactionGroup transactionGroup = new TransactionGroup(
                 resultSet.getInt("idTransactionGroup"),
-                resultSet.getTimestamp("date").toLocalDateTime(),
+                resultSet.getTimestamp("timestamp"),
                 resultSet.getString("description"),
                 resultSet.getString("method"),
                 resultSet.getInt("idAccountSender")
@@ -40,7 +38,7 @@ public class TransactionGroupCrudOperations implements CrudOperations<Transactio
   public TransactionGroup save(TransactionGroup toSave) {
     String insertQuery = "INSERT INTO transaction_group (date, description, method, idAccountSender) VALUES (?, ?, ?, ?)";
     try (PreparedStatement insertStatement = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS)) {
-      insertStatement.setTimestamp(1, Timestamp.valueOf(toSave.getDate()));
+      insertStatement.setTimestamp(1, Timestamp.valueOf(toSave.getTimestamp().toLocalDateTime()));
       insertStatement.setString(2, toSave.getDescription());
       insertStatement.setString(3, toSave.getMethod());
       insertStatement.setInt(4, toSave.getIdAccountSender());
@@ -63,7 +61,7 @@ public class TransactionGroupCrudOperations implements CrudOperations<Transactio
   public boolean update(TransactionGroup toSave) {
     String updateQuery = "UPDATE transaction_group SET date=?, description=?, method=?, idAccountSender=? WHERE idTransactionGroup=?";
     try (PreparedStatement updateStatement = connection.prepareStatement(updateQuery)) {
-      updateStatement.setTimestamp(1, Timestamp.valueOf(toSave.getDate()));
+      updateStatement.setTimestamp(1, Timestamp.valueOf(toSave.getTimestamp().toLocalDateTime()));
       updateStatement.setString(2, toSave.getDescription());
       updateStatement.setString(3, toSave.getMethod());
       updateStatement.setInt(4, toSave.getIdAccountSender());

@@ -41,9 +41,9 @@ To start using BankBank's API, follow these steps:
 
 ## API Endpoints
 
-For detailed information about each endpoint and the expected request and response formats, refer to the [API documentation](./docs/openapi.yaml).
-
-Or [view it on SwaggerUI](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/strawberries-team/bankbank-api/prod/docs/openapi.yaml#).
+For detailed information about each endpoint and the expected request and response formats
+- [View it on SwaggerUI](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/strawberries-team/bankbank-api/prod/docs/openapi.yaml#)
+- [View it on Postman](https://www.postman.com/lunar-module-observer-68161093/workspace/bankbank-workspace/collection/28551443-a93df2b2-6a58-48a5-a888-53f7ba278f29?action=share&creator=28551443)
 
 ## Conceptual Database Model
 

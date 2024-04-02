@@ -87,28 +87,5 @@ public class AccountCrudOperations implements CrudOperations<Account> {
             return false;
         }
     }
-
-    public Account getAccountById(int idAccount) {
-        String sql = "SELECT * FROM account WHERE idAccount=?";
-        try (PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setInt(1, idAccount);
-            ResultSet resultSet = statement.executeQuery();
-            if (resultSet.next()) {
-                return new Account(
-                        resultSet.getInt("idAccount"),
-                        resultSet.getString("lastName"),
-                        resultSet.getString("firstName"),
-                        resultSet.getDate("birthDate"),
-                        resultSet.getDouble("monthlySalary"),
-                        resultSet.getString("authorizedCredit"),
-                        resultSet.getString("bankName"),
-                        resultSet.getInt("idBalance")
-                );
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
 }
 

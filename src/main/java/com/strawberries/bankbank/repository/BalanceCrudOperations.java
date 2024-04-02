@@ -4,10 +4,11 @@ package com.strawberries.bankbank.repository;
 import com.strawberries.bankbank.db.ConnectDB;
 import com.strawberries.bankbank.entity.Balance;
 import org.springframework.stereotype.Repository;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import javax.sql.DataSource;
+
 
 @Repository
 public class BalanceCrudOperations implements CrudOperations<Balance> {
@@ -23,7 +24,7 @@ public class BalanceCrudOperations implements CrudOperations<Balance> {
       while (resultSet.next()) {
         Balance balance = new Balance(
                 resultSet.getInt("idBalance"),
-                resultSet.getTimestamp("date").toLocalDateTime(),
+                resultSet.getTimestamp("timestamp"),
                 resultSet.getDouble("amount"),
                 resultSet.getString("typeBalance")
         );
@@ -37,9 +38,9 @@ public class BalanceCrudOperations implements CrudOperations<Balance> {
 
   @Override
   public Balance save(Balance toSave) {
-    String insertQuery = "INSERT INTO balance (date, amount, typeBalance) VALUES (?, ?, ?)";
+    String insertQuery = "INSERT INTO balance (timestamp, amount, typeBalance) VALUES (?, ?, ?)";
     try (PreparedStatement insertStatement = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS)) {
-      insertStatement.setTimestamp(1, Timestamp.valueOf(toSave.getDate()));
+      insertStatement.setTimestamp(1, Timestamp.valueOf(toSave.getTimestamp().toLocalDateTime()));
       insertStatement.setDouble(2, toSave.getAmount());
       insertStatement.setString(3, toSave.getTypeBalance());
 
@@ -59,9 +60,9 @@ public class BalanceCrudOperations implements CrudOperations<Balance> {
 
   @Override
   public boolean update(Balance toSave) {
-    String updateQuery = "UPDATE balance SET date=?, amount=?, typeBalance=? WHERE idBalance=?";
+    String updateQuery = "UPDATE balance SET timestamp=?, amount=?, typeBalance=? WHERE idBalance=?";
     try (PreparedStatement updateStatement = connection.prepareStatement(updateQuery)) {
-      updateStatement.setTimestamp(1, Timestamp.valueOf(toSave.getDate()));
+      updateStatement.setTimestamp(1, Timestamp.valueOf(toSave.getTimestamp().toLocalDateTime()));
       updateStatement.setDouble(2, toSave.getAmount());
       updateStatement.setString(3, toSave.getTypeBalance());
       updateStatement.setInt(4, toSave.getIdBalance());
