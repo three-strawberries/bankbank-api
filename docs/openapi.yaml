@@ -397,6 +397,21 @@ paths:
           $ref: '#/components/responses/404'
         '500':
           $ref: '#/components/responses/500'
+  /ping:
+    get:
+      summary: Check the health of the server
+      tags:
+        - Health
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: pong
+        '500':
+          $ref: '#/components/responses/500'
 components:
   schemas:
     Account:
