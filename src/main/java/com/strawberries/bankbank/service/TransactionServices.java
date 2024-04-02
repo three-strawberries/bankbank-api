@@ -19,19 +19,11 @@ public class TransactionServices {
     return transactionCrudOperations.findAll();
   }
 
-<<<<<<< HEAD
   public Transaction saveTransaction(Transaction transaction) throws SQLException, IllegalAccessException {
     return transactionCrudOperations.save(transaction);
   }
 
   public boolean updateTransaction(int idTransaction, Transaction transaction) throws SQLException, IllegalAccessException {
-=======
-  public Transaction saveTransaction(Transaction transaction) throws SQLException {
-    return transactionCrudOperations.save(transaction);
-  }
-
-  public boolean updateTransaction(int idTransaction, Transaction transaction) throws SQLException {
->>>>>>> ef793a02132498c7af1112e22a47a4bb9734cf69
     return transactionCrudOperations.update(transaction);
   }
 }
